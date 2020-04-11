@@ -1,0 +1,17 @@
+
+###> symfony/framework-bundle ###
+/pogoda/.env.local
+/pogoda/.env.local.php
+/pogoda/.env.*.local
+/pogoda/config/secrets/prod/prod.decrypt.private.php
+/pogoda/public/bundles/
+/pogoda/var/
+/pogoda/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+/pogoda/.phpunit
+/pogoda/.phpunit.result.cache
+/pogoda/phpunit.xml
+###< symfony/phpunit-bridge ###
+nbproject/*
