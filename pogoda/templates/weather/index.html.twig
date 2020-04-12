@@ -1,0 +1,52 @@
+{#{% extends 'logInbar.html.twig' %}#}
+
+
+{% block body %}
+    {#{% block content %}{{ parent() }}{% endblock %}#}
+    <div class='w-100 bg-success logInBar'>
+        <div class='text-white logInBarLogo'>Pogoda</div>
+        <div class='logInBarLogin'>
+            <label >Zaloguj</label>
+        </div>
+    </div>
+    <div class='weatherContner'>
+        <div class='weatherContnerHead'>
+            <div class='weatherTitle'>
+                <label>Pogoda</label>
+            </div>
+            <div class='weatherContnerSelect'>
+                <div class='weatherContnerServis'>
+                    <label>Wybierz serwis</label>
+                    <select class='form-control serviceType'>
+                        <option value=''>Wybierz</option>
+                        <option value='1'>Yahoo</option>
+                    </select>
+                </div>
+                <div class='weatherContnerCity'>
+                    <label >Wybierz miasto</label>
+                    <input type='text' class='form-control cityWeather'/>
+                </div>
+            </div>
+            <div class='weatherContnerError'>
+                    <label class='weatherContnerErrorMessage'></label>
+                </div>
+            <div class='weatherContnerButton'>
+                <button class='btn btn-primary checkWeather'>Sprawdź pogodę</button>
+            </div>
+        </div>
+        <div class='weatherContnerBody'>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   {{ encore_entry_link_tags('weather') }}
+   {{ encore_entry_link_tags('loginBar') }}
+{% endblock %}
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    {{ encore_entry_script_tags('weather') }}
+    {{ encore_entry_script_tags('loginBar') }}
+
+{% endblock %}
