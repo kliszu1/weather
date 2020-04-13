@@ -1,12 +1,14 @@
-{#{% extends 'logInbar.html.twig' %}#}
-
-
 {% block body %}
-    {#{% block content %}{{ parent() }}{% endblock %}#}
     <div class='w-100 bg-success logInBar'>
         <div class='text-white logInBarLogo'>Pogoda</div>
         <div class='logInBarLogin'>
-            <label >Zaloguj</label>
+            <form>
+                <label class='text-light' >Login: </label>
+                <input type='text' class='form-control login'/>
+                <label class='text-light' >Hasło: </label>
+                <input type='password' class='form-control password'/>
+                <button class='btn btn-primary mb-1 loginButton'>Zaloguj</button>
+            </form>
         </div>
     </div>
     <div class='weatherContner'>
@@ -46,6 +48,7 @@
 {% endblock %}
 {% block javascripts %}
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     {{ encore_entry_script_tags('weather') }}
     {{ encore_entry_script_tags('loginBar') }}
 

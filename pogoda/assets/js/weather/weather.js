@@ -1,22 +1,29 @@
 
 import '../../css/weather/weather.css';
+defaultStart();
+
 
 $( document ).ready(function() {
-    $('.weatherContner').on( "click",".checkWeather", function() {
-        getWeather();
+    $('body').on( "click",".checkWeather", function() {
+        getWeather($('.serviceType').val(),$('.cityWeather').val());
     }); 
 });
 
-function getWeather(){
-    $('.weatherContnerErrorMessage').text();
+function defaultStart(){
+    $('.serviceType').val('1');
+    $('.cityWeather').val('warszawa');
+    getWeather('1','warszawa');
+}
+function getWeather(serviceType,weatherContnerCity){
     
-    var serviceType = $('.serviceType').val();
-    var weatherContnerCity = $('.cityWeather').val();
+    $('.weatherContnerErrorMessage').text('');
     
     if(serviceType.length <= 0 || weatherContnerCity.length <= 0){
         $('.weatherContnerErrorMessage').text('Pola nie mogą być puste');
         return false;
     }
+
+    Swal.showLoading();
     
     $.ajax({ 
         url: '/public/index.php/ajax/',
@@ -26,10 +33,10 @@ function getWeather(){
             city: weatherContnerCity,
         }, 
         dataType : 'json',
-        success: function(response){ 
+        success: function(response){
             switch(response.status){
                 case 'error':
-                    $('.weatherContnerErrorMessage').text();
+                    $('.weatherContnerErrorMessage').text('');
                     $('.weatherContnerErrorMessage').text(response.message);
                 break;
                 case 'ok':
@@ -37,6 +44,7 @@ function getWeather(){
                     $('.weatherContnerBody').html(response.html);
                 break;
             }
+            Swal.close();
         }, 
     });
 }
