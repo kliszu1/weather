@@ -3,5 +3,5 @@ weather:
     controller: App\Controller\Weather\WeatherControler::index
 
 get_weather:
-    path: /ajax/weather/
-    controller: App\Controller\Weather\WeatherControler::getWeather
+    path: /ajax/
+    controller: App\Controller\Weather\WeatherControler::getWeatherControler

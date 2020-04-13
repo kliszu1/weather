@@ -8,13 +8,18 @@ namespace App\Controller\Weather\Strategy;
  * @author Kliszu
  */
 class WeatherStrategy {
-    public function selectService($service){
+    public function selectService(string $service){
         switch($service){
             case \App\Controller\Weather\Dictionary\WeatherServicesDictionary::KEY_YAHOO:
-                return new WeatherServices\YahooServices();
+                return [
+                    'status' => 'ok', 
+                    'services' => new WeatherServices\Yahoo\YahooServices(), 
+                    'view' => new WeatherServices\Yahoo\YahooView()];
             break;
             default:
-                return false;
+                return [
+                    'status' => 'error',
+                    'message'=>'Nie znaleziono wybranego serwisu.'];
         }
     }
 }

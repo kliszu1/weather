@@ -45,6 +45,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: #28a745;
+    padding: 10px 0px;
 }
 
 .weatherContnerError{
@@ -56,3 +57,40 @@
     color: red;
     padding: 10px 20px;
 }
+
+.cityWeather, .serviceType{
+    height: 45px;
+}
+
+.weatherContenerInfo{
+    width: 95%;
+    margin:5px auto;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+.weatherContenerDayInfo{
+    width: 95%;
+    height: 200px;
+    display: flex; 
+    align-items: center;
+    overflow: overlay;
+    padding: 15px;
+    margin: 0 auto;
+}
+.weatherDayInfo{
+    width: 200px !important;
+    background-color: white;
+    margin: 5px 15px;
+    border-radius: 5px;
+    padding: 10px;
+    
+    -webkit-box-shadow: -2px 2px 35px -5px rgba (0,0,0,0,75);
+    -moz-box-shadow: -2px 2px 35px -5px rgba (0,0,0,0,75);
+    box-shadow: -2px 2px 35px -5px rgba (0,0,0,0,75);
+}
+
+.weatherContenerInfo label, .weatherContenerDayInfo label{
+    font-size: 15px;
+}
+
